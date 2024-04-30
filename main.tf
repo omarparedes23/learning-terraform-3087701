@@ -15,6 +15,7 @@ data "aws_ami" "app_ami" {
 }
 
 data "aws_vpc" "default" {
+  name   ="omarsecurity"
   default=true
 }
 
@@ -50,6 +51,7 @@ resource "aws_security_group" "blog" {
 }
 
 resource "aws_security_group_rule" "blog_http_in" {
+  name = "reglaentrada1"
   type = "ingress"
   from_port = 80
   to_port = 80
@@ -60,6 +62,7 @@ resource "aws_security_group_rule" "blog_http_in" {
 }
 
 resource "aws_security_group_rule" "blog_https_in" {
+  name = "reglaentrada2"
   type = "ingress"
   from_port = 443
   to_port = 443
@@ -70,6 +73,7 @@ resource "aws_security_group_rule" "blog_https_in" {
 }
 
 resource "aws_security_group_rule" "blog_everything_out" {
+  name = "reglasalida"
   type = "egress"
   from_port = 0
   to_port = 0
